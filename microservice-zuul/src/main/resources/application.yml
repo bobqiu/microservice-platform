@@ -1,0 +1,25 @@
+server:
+  port: 8501
+spring:
+  application:
+    name: microservice-zuul
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: microservice-config-server
+      fail-fast: true
+      username: root
+      password: root
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+   # instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    appname: microservice-zuul
+zuul:
+  routes:
+    microservice-consumer-h5-feign: /consumer/**

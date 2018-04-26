@@ -1,0 +1,35 @@
+server:
+  port: 8503
+eureka:
+  client:
+    service-url:
+      #注册服务到eureka上，记住这里要加上eureka-server的用户名和密码
+      #defaultZone: http://root:booszy@localhost:8761/eureka
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+    #可能比较长，复制的时候请写在一行
+    #instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    appname: microservice-zipkin-server
+spring:
+  application:
+    name: microservice-zipkin-server
+  datasource:
+    schema: classpath:/mysql.sql
+    url: jdbc:mysql://127.0.0.1:3306/zipkin
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    # Switch this on to create the schema on startup:
+    initialize: true
+    continueOnError: true
+  sleuth:
+    enabled: false
+    # default is mem (in-memory)
+zipkin:
+  storage:
+    type: mysql
+management:
+  health:
+    rabbit:
+      enabled: false
