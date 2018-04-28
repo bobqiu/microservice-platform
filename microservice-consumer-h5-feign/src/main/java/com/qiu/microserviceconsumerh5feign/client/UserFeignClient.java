@@ -15,7 +15,7 @@ import java.util.List;
  * @create: 2018-04-19
  **/
 
-@FeignClient(value = "MICROSERVICE-PROVIDER-USERSERVICE") //
+@FeignClient(value = "MICROSERVICE-PROVIDER-USERSERVICE",fallback = UserServiceFallback.class) //
 public interface UserFeignClient {
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
