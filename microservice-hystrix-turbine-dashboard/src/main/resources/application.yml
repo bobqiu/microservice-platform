@@ -1,0 +1,27 @@
+server:
+  port: 8502
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+    #instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    appname: microservice-hystrix-turbine-dashboard
+turbine:
+  aggregator:
+#    clusterConfig: default
+  #appConfig: microservice-provider-userservice,microservice-consumer-h5-feign
+  appConfig: microservice-consumer-h5-feign
+#  clusterNameExpression: "'default'"
+spring:
+  application:
+    name: microservice-hystrix-turbine-dashboard
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE

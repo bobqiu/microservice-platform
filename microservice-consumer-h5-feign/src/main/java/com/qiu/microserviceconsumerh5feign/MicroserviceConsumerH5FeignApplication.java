@@ -8,6 +8,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
+/**
+ * http://127.0.0.1:9993/list
+ */
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients//开启SpringCloud Feign的支持功能

@@ -56,10 +56,10 @@ public class MicroserviceProviderUserserviceApplicationTests {
     public void testUserRegister()throws Exception{
         User user =new User();
         user.setName("tony");
-        user.setPassword("666666");
-        user.setCreateDate(new Date());
+        user.setPassWord("666666");
+        user.setCrtTime(new Date());
         Department department=departmentService.getDepartmentById(1L);
-        user.setDepartment(department);
+       // user.setDepartment(department);
         User result =userService.register(user);
         LOGGER.info("register result "+result);
 
@@ -70,7 +70,7 @@ public class MicroserviceProviderUserserviceApplicationTests {
     public void testWriteOff()throws Exception{
         User user =new User();
         user.setName("tony");
-        user.setPassword("666666");
+        user.setPassWord("666666");
         userService.writeOff(user);
 
     }
@@ -81,8 +81,8 @@ public class MicroserviceProviderUserserviceApplicationTests {
     public void testUserLogin()throws Exception{
         User user =new User();
         user.setName("tony");
-        user.setPassword("666666");
-        User result =userService.login(user.getName(),user.getPassword());
+        user.setPassWord("666666");
+        User result =userService.login(user.getName(),user.getPassWord());
         LOGGER.info("login  "+result);
 
     }

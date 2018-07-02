@@ -1,0 +1,17 @@
+spring:
+  zipkin:
+    base-url: http://localhost:8503
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+auth:
+  #serviceId: MICROSERVICE-SECURITY-SERVER
+  serviceId: microservice-security-server
+  user:
+    token-header: Authorization
+  client:
+    id: microservice-provider-userservice
+    secret: QpgqrVVK
+    token-header: x-client-token

@@ -1,106 +1,490 @@
 package com.qiu.microserviceprovideruserservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.springframework.format.annotation.DateTimeFormat;
+import com.qiu.common.entity.BaseEntity;
+import org.springframework.data.annotation.Persistent;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
 @Entity
-@Table(name = "micro_user_user")
-public class User  implements Serializable {
-
-    @Id
-    @Column(name = "user_id")
+@Table(name = "base_user")
+public class User  extends BaseEntity {
+   /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;*/
 
-    @Column(name = "user_name")
+
+
+    private String userName;
+
+    private String passWord;
+
     private String name;
 
 
-    @Column(name = "user_password")
-    private String password;
+    private String birthday;
 
+    private String address;
 
-    @Column(name = "user_create_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date createDate;
+    @Column(name = "mobile_phone")
+    private String mobilePhone;
 
+    @Column(name = "tel_phone")
+    private String telPhone;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    @JsonBackReference
-    private Department department;
+    private String email;
 
+    private String sex;
 
+    private String type;
 
-    @ManyToMany(cascade = {},fetch = FetchType.EAGER)
-    @JoinTable(name = "springboot_user_role",joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")}
-    )
-    private List<Role> roleList;
+    private String description;
 
-    public Long getId() {
+    @Column(name = "crt_time")
+    private Date crtTime;
+
+    @Column(name = "crt_user")
+    private String crtUser;
+
+    @Column(name = "crt_name")
+    private String crtName;
+
+    @Column(name = "crt_host")
+    private String crtHost;
+
+    @Column(name = "upd_time")
+    private Date updTime;
+
+    @Column(name = "upd_user")
+    private String updUser;
+
+    @Column(name = "upd_name")
+    private String updName;
+
+    @Column(name = "upd_host")
+    private String updHost;
+
+    private String attr1;
+
+    private String attr2;
+
+    private String attr3;
+
+    private String attr4;
+
+    private String attr5;
+
+    private String attr6;
+
+    private String attr7;
+
+    private String attr8;
+
+   /* public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }*/
+
+    public String getUserName() {
+        return userName;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    /**
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    /**
+     * @return birthday
+     */
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    /**
+     * @param birthday
+     */
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    /**
+     * @return address
+     */
+    public String getAddress() {
+        return address;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    /**
+     * @param address
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Department getDepartment() {
-        return department;
+    /**
+     * @return mobile_phone
+     */
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    /**
+     * @param mobilePhone
+     */
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
-    public List<Role> getRoleList() {
-        return roleList;
+    /**
+     * @return tel_phone
+     */
+    public String getTelPhone() {
+        return telPhone;
     }
 
-    public void setRoleList(List<Role> roleList) {
-        this.roleList = roleList;
+    /**
+     * @param telPhone
+     */
+    public void setTelPhone(String telPhone) {
+        this.telPhone = telPhone;
     }
+
+    /**
+     * @return email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return sex
+     */
+    public String getSex() {
+        return sex;
+    }
+
+    /**
+     * @param sex
+     */
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    /**
+     * @return type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * @return description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return crt_time
+     */
+    public Date getCrtTime() {
+        return crtTime;
+    }
+
+    /**
+     * @param crtTime
+     */
+    public void setCrtTime(Date crtTime) {
+        this.crtTime = crtTime;
+    }
+
+    /**
+     * @return crt_user
+     */
+    public String getCrtUser() {
+        return crtUser;
+    }
+
+    /**
+     * @param crtUser
+     */
+    public void setCrtUser(String crtUser) {
+        this.crtUser = crtUser;
+    }
+
+    /**
+     * @return crt_name
+     */
+    public String getCrtName() {
+        return crtName;
+    }
+
+    /**
+     * @param crtName
+     */
+    public void setCrtName(String crtName) {
+        this.crtName = crtName;
+    }
+
+    /**
+     * @return crt_host
+     */
+    public String getCrtHost() {
+        return crtHost;
+    }
+
+    /**
+     * @param crtHost
+     */
+    public void setCrtHost(String crtHost) {
+        this.crtHost = crtHost;
+    }
+
+    /**
+     * @return upd_time
+     */
+    public Date getUpdTime() {
+        return updTime;
+    }
+
+    /**
+     * @param updTime
+     */
+    public void setUpdTime(Date updTime) {
+        this.updTime = updTime;
+    }
+
+    /**
+     * @return upd_user
+     */
+    public String getUpdUser() {
+        return updUser;
+    }
+
+    /**
+     * @param updUser
+     */
+    public void setUpdUser(String updUser) {
+        this.updUser = updUser;
+    }
+
+    /**
+     * @return upd_name
+     */
+    public String getUpdName() {
+        return updName;
+    }
+
+    /**
+     * @param updName
+     */
+    public void setUpdName(String updName) {
+        this.updName = updName;
+    }
+
+    /**
+     * @return upd_host
+     */
+    public String getUpdHost() {
+        return updHost;
+    }
+
+    /**
+     * @param updHost
+     */
+    public void setUpdHost(String updHost) {
+        this.updHost = updHost;
+    }
+
+    /**
+     * @return attr1
+     */
+    public String getAttr1() {
+        return String.valueOf(id);
+    }
+
+    /**
+     * @param attr1
+     */
+    public void setAttr1(String attr1) {
+        this.attr1 = attr1;
+    }
+
+    /**
+     * @return attr2
+     */
+    public String getAttr2() {
+        return attr2;
+    }
+
+    /**
+     * @param attr2
+     */
+    public void setAttr2(String attr2) {
+        this.attr2 = attr2;
+    }
+
+    /**
+     * @return attr3
+     */
+    public String getAttr3() {
+        return attr3;
+    }
+
+    /**
+     * @param attr3
+     */
+    public void setAttr3(String attr3) {
+        this.attr3 = attr3;
+    }
+
+    /**
+     * @return attr4
+     */
+    public String getAttr4() {
+        return attr4;
+    }
+
+    /**
+     * @param attr4
+     */
+    public void setAttr4(String attr4) {
+        this.attr4 = attr4;
+    }
+
+    /**
+     * @return attr5
+     */
+    public String getAttr5() {
+        return attr5;
+    }
+
+    /**
+     * @param attr5
+     */
+    public void setAttr5(String attr5) {
+        this.attr5 = attr5;
+    }
+
+    /**
+     * @return attr6
+     */
+    public String getAttr6() {
+        return attr6;
+    }
+
+    /**
+     * @param attr6
+     */
+    public void setAttr6(String attr6) {
+        this.attr6 = attr6;
+    }
+
+    /**
+     * @return attr7
+     */
+    public String getAttr7() {
+        return attr7;
+    }
+
+    /**
+     * @param attr7
+     */
+    public void setAttr7(String attr7) {
+        this.attr7 = attr7;
+    }
+
+    /**
+     * @return attr8
+     */
+    public String getAttr8() {
+        return attr8;
+    }
+
+    /**
+     * @param attr8
+     */
+    public void setAttr8(String attr8) {
+        this.attr8 = attr8;
+    }
+
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .append("id", id)
-                .append("name", name)
-                .append("password", password)
-                .append("createDate", createDate)
-                .append("department", department)
-                .append("roleList", roleList)
-                .toString();
+        return "User{\n" +
+                "id='" + id + '\'' +
+                "userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", name='" + name + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address='" + address + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", telPhone='" + telPhone + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                ", crtTime=" + crtTime +
+                ", crtUser='" + crtUser + '\'' +
+                ", crtName='" + crtName + '\'' +
+                ", crtHost='" + crtHost + '\'' +
+                ", updTime=" + updTime +
+                ", updUser='" + updUser + '\'' +
+                ", updName='" + updName + '\'' +
+                ", updHost='" + updHost + '\'' +
+                ", attr1='" + attr1 + '\'' +
+                ", attr2='" + attr2 + '\'' +
+                ", attr3='" + attr3 + '\'' +
+                ", attr4='" + attr4 + '\'' +
+                ", attr5='" + attr5 + '\'' +
+                ", attr6='" + attr6 + '\'' +
+                ", attr7='" + attr7 + '\'' +
+                ", attr8='" + attr8 + '\n' +
+                '}';
     }
 }

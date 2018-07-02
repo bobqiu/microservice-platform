@@ -1,5 +1,6 @@
 package com.qiu.microserviceprovideruserservice.entity;
 
+import com.qiu.common.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -9,26 +10,20 @@ import java.io.Serializable;
 @Entity
 @Table(name = "micro_user_department")
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Department implements Serializable {
+public class Department  extends BaseEntity {
 
 
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "department_id")
-    private Long id;
+    private Long id;*/
 
 
     @Column(name = "department_name")
     private String name;
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -41,7 +36,7 @@ public class Department implements Serializable {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append("id", id)
+
                 .append("name", name)
                 .toString();
     }

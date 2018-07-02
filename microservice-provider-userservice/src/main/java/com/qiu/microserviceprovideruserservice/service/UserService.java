@@ -1,8 +1,10 @@
 package com.qiu.microserviceprovideruserservice.service;
 
+import com.qiu.common.response.TableResultResponse;
 import com.qiu.microserviceprovideruserservice.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description:
@@ -47,4 +49,5 @@ public interface UserService {
 
     User getUserById(Long id);
 
+    TableResultResponse<User> getUserTableResult(Map<String, Object> params);
 }

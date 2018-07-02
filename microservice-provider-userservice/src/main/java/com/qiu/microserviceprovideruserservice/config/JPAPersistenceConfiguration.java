@@ -30,8 +30,8 @@ import java.util.Properties;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true) //启用JPA的事务管理
-@EnableJpaRepositories(basePackages = {"com.qiu.microserviceprovideruserservice.dao"})//启用JPA资源库并指定资源库接口位置
-@EntityScan(basePackages = {"com.qiu.microserviceprovideruserservice.entity"})//指定实体的位置
+@EnableJpaRepositories(basePackages = {"com.qiu.microserviceprovideruserservice.dao","com.qiu.common.dao"})//启用JPA资源库并指定资源库接口位置
+@EntityScan(basePackages = {"com.qiu.microserviceprovideruserservice.entity","com.qiu.common.entity"})//指定实体的位置
 public class JPAPersistenceConfiguration {
 
 
@@ -110,7 +110,7 @@ public class JPAPersistenceConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource druidDataSource){
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean =new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(druidDataSource);
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.qiu.microserviceprovideruserservice.entity");
+        localContainerEntityManagerFactoryBean.setPackagesToScan(new String[]{"com.qiu.microserviceprovideruserservice.entity","com.qiu.common.entity"});
         localContainerEntityManagerFactoryBean.setJpaProperties(buildHibernateProperties());
         localContainerEntityManagerFactoryBean.setJpaDialect(new HibernateJpaDialect());
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter(){

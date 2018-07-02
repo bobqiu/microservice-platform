@@ -1,5 +1,6 @@
 package com.qiu.microserviceprovideruserservice.dao;
 
+import com.qiu.common.api.vo.UserInfo;
 import com.qiu.microserviceprovideruserservice.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -26,7 +27,7 @@ public interface UserRepository  extends JpaRepository<User,Long> {
     User findByIdAndName(Long id, String name);
 
 
-    User findByNameAndPassword(String name, String password);
+    User findByUserName(String name);
 
     /**
      *  or
@@ -43,7 +44,7 @@ public interface UserRepository  extends JpaRepository<User,Long> {
      * @param end
      * @return
      */
-    List<User> findByCreateDateBetween(Date start, Date end);
+    List<User> findByCrtTimeBetween(Date start, Date end);
 
 
     /**
@@ -51,14 +52,14 @@ public interface UserRepository  extends JpaRepository<User,Long> {
      * @param start
      * @return
      */
-    List<User> getByCreateDateLessThan(Date start);
+    List<User> getByCrtTimeLessThan(Date start);
 
     /**
      * Greater Than
      * @param start
      * @return
      */
-    List<User> findByCreateDateGreaterThan(Date start);
+    List<User> findByCrtTimeGreaterThan(Date start);
 
 
     /**
@@ -75,4 +76,5 @@ public interface UserRepository  extends JpaRepository<User,Long> {
      */
     List<User> findByNameIn(Collection<String> nameList);
 
+    User getByUserName(String username);
 }
